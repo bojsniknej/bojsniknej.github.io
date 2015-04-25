@@ -28,9 +28,46 @@
         stroke: #9ecae1;
         stroke-width: 1.5px;
       }
-    </style>    
-  </head>
+    </style>
 
+
+
+
+<script
+src="http://maps.googleapis.com/maps/api/js">
+</script>
+
+<script>
+var myCenter=new google.maps.LatLng(44.697158,-63.683447);
+
+function initialize()
+{
+var mapProp = {
+  center:myCenter,
+  zoom:12,
+  mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+
+var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+var marker=new google.maps.Marker({
+  position:myCenter,
+  });
+
+marker.setMap(map);
+
+var infowindow = new google.maps.InfoWindow({
+  content:"Jamie's Pick of the Week!"
+  });
+
+infowindow.open(map,marker);
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+  </head>
+  <body>
 
     <div class="container">
 
@@ -65,10 +102,13 @@
 
 
         <div class="col-lg-8">
-          <img src="static/images/1583_scaled_wide_lightened.jpg" class="img-rounded" width="650" pull-right>
-            
-      </div>
-          
+
+            <div class="row">
+                <img src="static/images/1583_scaled_wide_lightened.jpg" class="img-rounded" width="650" pull-right>
+                <br><br>
+                <div id="googleMap" style="width:650px;height:380px;"></div>
+            </div>
+          </div>
         </div>
       </div>
 
