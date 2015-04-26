@@ -70,7 +70,7 @@ marker.setMap(map);
 var infowindow = new google.maps.InfoWindow({
   content: contentString,
   maxWidth: 300,
-  maxHeight: 200
+  maxHeight: 150
 
   });
 
@@ -79,6 +79,58 @@ infowindow.open(map,marker);
 
 google.maps.event.addDomListener(window, 'load', initialize);
 </script>
+
+<script>
+
+  var contentString2 = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h5 id="firstHeading" class="firstHeading">Sweetest Spot of the Week!</h5>'+
+      '<div id="bodyContent">'+
+      '<p><img src="static/images/IMG_1583.JPG" class="img-rounded" width="350" pull-center></p>'+
+      '</div>'+
+      '</div>';
+
+
+//var myCenter2=new google.maps.LatLng(44.697158,-63.683447);
+
+var myCenter2=new google.maps.LatLng(45.677524,-63.675328); //45 ed
+//var myCenter3=new google.maps.LatLng(44.749326,-63.792558); // 120 norm
+
+function initialize()
+{
+var mapProp2 = {
+  center:myCenter2,
+  zoom:12,
+  mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+
+var map2=new google.maps.Map(document.getElementById("googleMap2"),mapProp2);
+
+var marker2=new google.maps.Marker({
+  position:myCenter2,
+  });
+
+marker2.setMap(map2);
+
+var infowindow2 = new google.maps.InfoWindow({
+  content: contentString2,
+  maxWidth: 300,
+  maxHeight: 100
+
+  });
+
+infowindow2.open(map2,marker2);
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+
+
+
+
+</script>
+
 
   </head>
   <body>
@@ -123,6 +175,8 @@ google.maps.event.addDomListener(window, 'load', initialize);
                 <img src="static/images/1583_scaled_wide_lightened.jpg" class="img-rounded" width="650" pull-right>
                 <br><br>
                 <div id="googleMap" style="width:650px;height:380px;"></div>
+                <br><br>
+                <div id="googleMap2" style="width:650px;height:380px;"></div>
             </div>
         </div>
       </div>
