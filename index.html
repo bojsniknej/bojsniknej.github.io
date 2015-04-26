@@ -38,6 +38,17 @@ src="http://maps.googleapis.com/maps/api/js">
 </script>
 
 <script>
+
+  var contentString = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h5 id="firstHeading" class="firstHeading">Sweetest Spot of the Week!</h5>'+
+      '<div id="bodyContent">'+
+      '<p><img src="static/images/IMG_1636_scaled.JPG" class="img-rounded" width="350" pull-center></p>'+
+      '</div>'+
+      '</div>';
+
+
 var myCenter=new google.maps.LatLng(44.697158,-63.683447);
 
 function initialize()
@@ -57,7 +68,10 @@ var marker=new google.maps.Marker({
 marker.setMap(map);
 
 var infowindow = new google.maps.InfoWindow({
-  content:"Jamie's Pick of the Week!"
+  content: contentString,
+  maxWidth: 300,
+  maxHeight: 200
+
   });
 
 infowindow.open(map,marker);
